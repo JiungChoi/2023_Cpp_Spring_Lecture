@@ -33,6 +33,12 @@ public :
 	void initInfo();
 };
 
+tv::tv(){
+	power = true;
+	volume = 4;
+	channel = 10;
+}
+
 void tv::showInfo() {
 	if (power) {
 		cout << "Channel : " << channel << endl;

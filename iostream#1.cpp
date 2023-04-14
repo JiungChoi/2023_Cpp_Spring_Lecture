@@ -14,5 +14,6 @@ int main() {
 
     int area = width * height; // 사각형의 면적계산
     cout << "면적은 " << area << "\n"; //면적을 출력하고 다음줄로 넘어감
-
+    
+    return 0;
 }

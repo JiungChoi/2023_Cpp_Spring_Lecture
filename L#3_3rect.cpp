@@ -16,7 +16,7 @@ public:
 Rectangle::Rectangle() : Rectangle(0, 0) { }
 
 Rectangle::Rectangle(int wh) {
-	width = wh; height = wh;
+	width = height = wh;
 }
 
 Rectangle::Rectangle(int w, int h) {

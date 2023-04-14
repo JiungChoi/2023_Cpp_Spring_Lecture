@@ -28,22 +28,21 @@ public :
 			volume = (volume + 1) % 1000;
 		}
 	}
-	void DecVolume() {
-		if (power) {
-			volume = (1000 + (volume - 1)) % 1000;
-		}
-	}
-	void showInfo() {
-		if (power) {
-			cout << "Channel : " << channel << endl;
-			cout << "Volume : " << volume << endl;
-		}
-	}
-
-	void initInfo() {
-		channel = 0;  volume = 0;
-	}
+	void DecVolume();
+	void showInfo();
+	void initInfo();
 };
+
+void tv::showInfo() {
+	if (power) {
+		cout << "Channel : " << channel << endl;
+		cout << "Volume : " << volume << endl;
+	}
+}
+
+void tv::initInfo() {
+	channel = 0;  volume = 0;
+}
 
 int main() {
 	tv t1, t2, t3;

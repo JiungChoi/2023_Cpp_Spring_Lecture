@@ -1,7 +1,7 @@
 // 부터 n까지 짝수의 합을 구하시오
 
 #include<stdio.h>
-void main(){
+int main(){
     int n;
     int sum=0;
     scanf("%d", &n);
@@ -11,4 +11,6 @@ void main(){
             sum += i;
 
     printf("%d", sum);
+    
+    return 0;
 }

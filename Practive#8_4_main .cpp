@@ -1,30 +1,48 @@
 #include <iostream>
 using namespace std;
 
+class Circle{
+    int radius;
+    public:
+        Circle();
+        Circle(int r);
+        ~Circle();
+        void setRadius(int r) {radius=r;}
+        double getArea() {return 3.14*radius*radius;}
+};
+
+Circle :: Circle(){
+    radius = 1;
+    cout << "생성자 실행 radius = " << radius << endl;
+}
+
+Circle :: Circle(int r){
+    radius = r;
+    cout << "생성자 실행 radius = " << radius << endl;
+}
+
+Circle :: ~Circle(){
+    cout << "소멸자 실행 radius = " << radius << endl;
+}
+
 int main(){
-    cout << "입력할 정수의 개수는?";
-    int n;
-    cin >> n; // 정수의 개수 입력
-    if(n<=0) return 0;
-    int *p = new int[n]; // n개의 정수 배열 동적할당
-    if(!p) {
-        cout << "메모리를 할당할 수 없습니다.";
-        return 0;
-    }
+    Circle *pArray = new Circle [3];
     
-    for(int i=0; i<n ; i++){
-        cout << i+1 << "번째 정수: "; //프롬프트 출력
-        cin >> p[i]; //키보드로부터 정수 출력
-        
+    pArray[0].setRadius(10);
+    pArray[1].setRadius(20);
+    pArray[2].setRadius(30);
+
+    for(int i=0 ; i<3 ; i++){
+        cout << pArray[i].getArea() << "\n";
     }
 
-    int sum = 0;
-    for (int i=0; i<n ; i++){
-        sum += p[i];
-        cout <<"평균 = " << sum/n << endl;
-
-        delete [] p ; //배열 메모리 변환
+    Circle *p = pArray;  //포인터 p에 배열의 주소값으로 설정
+    for (int i=0 ; i<3 ; i++){
+        cout << p-> getArea() << "\n";
+        p++; // 다음 원소의 주소로 증가
     }
-    
+
+    delete [] pArray;  // 객체 배열 소멸
+
     return 0;
 }
